@@ -26,6 +26,8 @@ public class Order {
     @Column(name = "status")
     private String status;
 
-    @Column(name = "customer")
-    private int customer;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 }
