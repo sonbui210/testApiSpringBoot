@@ -20,4 +20,7 @@ public class Brand {
 
     @Column(name = "deleted")
     private Boolean deleted;
+
+
+    //test github
 }
