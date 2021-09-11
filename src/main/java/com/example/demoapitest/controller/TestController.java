@@ -32,7 +32,7 @@ public class TestController {
         return new ResponseEntity<ServiceResult>(testService.create(test), HttpStatus.OK);
     }
 
-    @PutMapping("test/{id}")
+    @PutMapping("test")
     public ResponseEntity<ServiceResult> update(@RequestBody Test test) {
         return new ResponseEntity<ServiceResult>(testService.update(test), HttpStatus.OK);
     }

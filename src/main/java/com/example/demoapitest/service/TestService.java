@@ -37,6 +37,7 @@ public class TestService {
 
     public ServiceResult update(Test test) {
         ServiceResult result = new ServiceResult();
+
          if (!testRepository.findById(test.getTestId()).isPresent()) {
              result.setStatus(ServiceResult.Status.FAILED);
              result.setMessage("Test not found!");
