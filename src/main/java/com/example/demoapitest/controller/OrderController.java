@@ -8,6 +8,7 @@ import com.example.demoapitest.service.ServiceResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.xml.ws.Response;
@@ -18,7 +19,9 @@ import java.util.List;
 import java.util.stream.Collector;
 
 @RestController
+//@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/api/v1")
+//@PreAuthorize("hasRole('USER') and hasRole('ADMIN')")
 public class OrderController {
 
     @Autowired
