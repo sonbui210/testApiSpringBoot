@@ -1,6 +1,7 @@
 package com.example.demoapitest.controller;
 
 
+import com.example.demoapitest.controller.delete.DeleteOrderRequest;
 import com.example.demoapitest.entities.Order;
 import com.example.demoapitest.entities.Test;
 import com.example.demoapitest.service.OrderService;
@@ -8,15 +9,11 @@ import com.example.demoapitest.service.ServiceResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.ws.Response;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collector;
 
 @RestController
 //@CrossOrigin(origins = "*", maxAge = 3600)
@@ -69,8 +66,8 @@ public class OrderController {
         return new ResponseEntity<ServiceResult>(orderService.update(order), HttpStatus.OK);
     }
 
-    @DeleteMapping("/orders")
-    public ResponseEntity<ServiceResult> delete(@RequestBody DeleteOrderRequest request) {
-        return new ResponseEntity<ServiceResult>(orderService.delete(request.getOrderId()), HttpStatus.OK);
+    @DeleteMapping("/orders/{id}")
+    public ResponseEntity<ServiceResult> delete(@PathVariable int id) {
+        return new ResponseEntity<ServiceResult>(orderService.delete(id), HttpStatus.OK);
     }
 }

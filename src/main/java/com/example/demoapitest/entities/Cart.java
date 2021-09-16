@@ -1,13 +1,19 @@
 package com.example.demoapitest.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
 @Table(name = "carts")
+@JsonIgnoreProperties("category")
 public class Cart {
 
     @Id
@@ -20,8 +26,11 @@ public class Cart {
 
     private float totalPrice;
 
-//    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
-//    private Collection<Product> products;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "carts_pruducts",
+                joinColumns = @JoinColumn(name = "cart_id"),
+                inverseJoinColumns = @JoinColumn(name = "product_id"))
+    private Set<Product> products = new HashSet<>();
 
 
 }

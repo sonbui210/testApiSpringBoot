@@ -1,6 +1,7 @@
 package com.example.demoapitest.controller;
 
 
+import com.example.demoapitest.controller.delete.DeleteCustomerRequest;
 import com.example.demoapitest.entities.Customer;
 import com.example.demoapitest.service.CustomerService;
 import com.example.demoapitest.service.ServiceResult;
@@ -11,7 +12,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
+//@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/api/v1")
 
 public class CustomerController {
@@ -21,7 +22,7 @@ public class CustomerController {
 
         // get all customer
     @GetMapping("/customers")
-    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR')")
+    //@PreAuthorize("hasRole('USER') or hasRole('MODERATOR')")
     public ResponseEntity<ServiceResult> findAllCustomer() {
         return new ResponseEntity<ServiceResult>(customerService.findAll(), HttpStatus.OK);
     }

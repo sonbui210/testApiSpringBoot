@@ -2,6 +2,7 @@ package com.example.demoapitest.entities;
 
 
 import lombok.Data;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -19,7 +20,8 @@ public class Category {
 
     private int quantity;
 
-    @OneToMany(mappedBy = "category")
-    private Set<Product> products;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "category")
+//    private Set<Product> products;
 
 }

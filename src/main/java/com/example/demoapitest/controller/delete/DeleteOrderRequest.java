@@ -1,4 +1,4 @@
-package com.example.demoapitest.controller;
+package com.example.demoapitest.controller.delete;
 
 
 import lombok.Data;
